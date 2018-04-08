@@ -1,0 +1,8 @@
+{
+  "name": "HelloTranslate",
+  "app_id": "120b5443",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
