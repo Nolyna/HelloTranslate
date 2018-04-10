@@ -3,8 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { GoogleCloudVisionServiceProvider } from '../../providers/google-cloud-vision-service/google-cloud-vision-service';
 //import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
+
 
 @Component({
   selector: 'page-home',
@@ -38,7 +37,8 @@ export class HomePage {
     }
     this.camera.getPicture(options).then((imageData) => {
       this.vision.getLabels(imageData).subscribe((result) => {
-        this.saveResults(imageData, result.json().responses);
+        //this.saveResults(imageData, result.json().responses);
+        this.saveResults(imageData, result);
       }, err => {
         this.showAlert(err);
       });
