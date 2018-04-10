@@ -5,10 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { Camera } from '@ionic-native/camera';
-import { HttpModule } from '@angular/http';
-import { environment } from '../environment';
-import { File } from '@ionic-native/file';
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { HttpModule} from '@angular/http';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+//import { environment } from '../environment';
+//import { File } from '@ionic-native/file';
+//import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 
 
 import { MyApp } from './app.component';
@@ -22,7 +23,8 @@ import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-visi
   ],
   imports: [
     BrowserModule,
-    HttpModule,,
+    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,8 +36,8 @@ import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-visi
     StatusBar,
     SplashScreen,
     Camera,
-    File,
-    FileTransfer, FileTransferObject,
+    //File,
+    //FileTransfer, FileTransferObject,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GoogleCloudVisionServiceProvider
   ]

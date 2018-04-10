@@ -15,12 +15,13 @@
                 <ion-item *ngFor="let label of item.results[0].labelAnnotations">{{label.description}}</ion-item>
             </ion-list>
         </ion-card-content>
-        <!--select ng-model="home_ctrl.detection_type">
+    </ion-card>
+    <!--select ng-model="home_ctrl.detection_type">
         <option value="{{detection_type}}" ng-repeat="(detection_type, detection_type_value) in home_ctrl.detection_types">{{detection_type_value}}</option>
       </select-->
-        <ion-fab bottom right>
-            <button ion-fab (click)="takePhoto()">
-            <ion-icon name="camera"></ion-icon>
-          </button>
-        </ion-fab>
+    <ion-fab bottom right>
+        <button ion-fab (click)="takePhoto()">
+        <ion-icon name="camera"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>
