@@ -4,8 +4,16 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { Camera } from '@ionic-native/camera';
+import { HttpModule } from '@angular/http';
+import { environment } from '../environment';
+import { File } from '@ionic-native/file';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-vision-service/google-cloud-vision-service';
 
 @NgModule({
   declarations: [
@@ -14,6 +22,7 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpModule,,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -24,7 +33,11 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    File,
+    FileTransfer, FileTransferObject,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GoogleCloudVisionServiceProvider
   ]
 })
 export class AppModule {}
