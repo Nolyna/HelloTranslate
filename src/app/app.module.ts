@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { Camera } from '@ionic-native/camera';
 import { HttpModule} from '@angular/http';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 //import { environment } from '../environment';
 //import { File } from '@ionic-native/file';
 //import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
