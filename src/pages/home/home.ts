@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { GoogleCloudVisionServiceProvider } from '../../providers/google-cloud-vision-service/google-cloud-vision-service';
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 //import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 
@@ -40,7 +40,7 @@ export class HomePage {
     }
     this.camera.getPicture(options).then((imageData) => {
       this.picInfo = this.vision.getLabels(imageData);
-      console.log("imgRseult",this.picInfo.responses);
+      console.log("imgRseult",this.picInfo.subscribe(val => console.log(val)));
       this.saveResults(imageData, this.picInfo.responses);
       
       /*this.vision.getLabels(imageData).subscribe((result) => {

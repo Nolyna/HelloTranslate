@@ -8,8 +8,6 @@ import { Camera } from '@ionic-native/camera';
 import { HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 //import { environment } from '../environment';
-//import { File } from '@ionic-native/file';
-//import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 
 
 import { MyApp } from './app.component';
@@ -36,8 +34,6 @@ import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-visi
     StatusBar,
     SplashScreen,
     Camera,
-    //File,
-    //FileTransfer, FileTransferObject,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GoogleCloudVisionServiceProvider
   ]

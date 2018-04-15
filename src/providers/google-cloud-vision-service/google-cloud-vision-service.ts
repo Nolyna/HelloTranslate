@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -14,6 +14,8 @@ import { environment } from '../../environment';
 */
 @Injectable()
 export class GoogleCloudVisionServiceProvider {
+
+  data : any;
 
   constructor(public http: HttpClient) {
     console.log('Hello GoogleCloudVisionServiceProvider Provider');
@@ -35,9 +37,14 @@ export class GoogleCloudVisionServiceProvider {
         }
       ]
     };
+     
+    this.data = this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' 
+     + environment.googleCloudVisionAPIKey, body);
     
+    console.log("retour2",this.data.map((res:Response) => res.json()));
+
     return this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' 
-            + environment.googleCloudVisionAPIKey, body);
+            + environment.googleCloudVisionAPIKey, body).map((res:Response) => res.json());
     
     /*.map(res => resolve(res);)
     .toPromise();    
