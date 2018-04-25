@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 import { environment } from '../../environment';
 
 /*
@@ -21,7 +21,7 @@ export class GoogleCloudVisionServiceProvider {
     console.log('Hello GoogleCloudVisionServiceProvider Provider');
   }
 
-  getLabels(base64Image) {
+  getLabels(base64Image): Observable<any> {
     const body = {
       "requests": [
         {
@@ -38,32 +38,9 @@ export class GoogleCloudVisionServiceProvider {
       ]
     };
      
-    this.data = this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' 
-     + environment.googleCloudVisionAPIKey, body);
-    
-    console.log("retour2",this.data.map((res:Response) => res.json()));
-
     return this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' 
-            + environment.googleCloudVisionAPIKey, body).map((res:Response) => res.json());
+            + environment.googleCloudVisionAPIKey, body);
     
-    /*.map(res => resolve(res);)
-    .toPromise();    
-    return new Promise((resolve, reject) => {
-      this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' 
-      + environment.googleCloudVisionAPIKey, body)
-      .toPromise()
-      .then((response) =>
-      {
-        console.log('API Response : ', response.json());
-        resolve(response.json());
-      })
-      .catch((error) =>
-      {
-        console.error('API Error : ', error.status);
-        console.error('API Error : ', JSON.stringify(error));
-        reject(error.json());
-      });
-    });*/
   }
 
 }

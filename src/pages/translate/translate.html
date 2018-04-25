@@ -1,0 +1,65 @@
+<!--
+  Generated template for the TranslatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>HelloTranslate</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <!-- Image -->
+    <ion-card>
+        <img src={{picture}} />
+        <ion-card-content>
+            <ion-card-title>
+                {{ word }}
+            </ion-card-title>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- translation part-->
+
+    <!-- Language select -->
+    <ion-list>
+        <ion-item>
+            <ion-label>Select a Language: </ion-label>
+            <ion-select [(ngModel)]="LanguageSelect">
+                <ion-option value="en-US" selected="true"> Select one</ion-option>
+                <ion-option value="fr-FR"> French</ion-option>
+                <ion-option value="es">Spanish</ion-option>
+                <ion-option value="ko">Korean</ion-option>
+            </ion-select>
+            <button ion-button outline item-end (click)="getTranslation()"> Translate </button>
+        </ion-item>
+    </ion-list>
+
+    <!-- translation result-->
+    <div>
+        <button ion-button icon-only (click)="listenWord()">
+            <ion-icon name="volume-up"></ion-icon>
+        </button> {{wordTranslate }}
+    </div>
+
+    <!-- audion part-->
+    <br>
+    <div>
+        <button ion-button icon-only (click)="captureAudio()">
+            <ion-icon name="mic"></ion-icon>
+        </button> {{scoreText}}
+    </div>
+    <!-- back button >
+    <br><br><br>
+    <button ion-button icon-left (click)="backHome()">
+        <ion-icon name="home"></ion-icon>
+        Home
+    </button-->
+
+
+</ion-content>

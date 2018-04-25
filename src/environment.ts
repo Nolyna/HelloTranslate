@@ -8,5 +8,10 @@ export const environment = {
       messagingSenderId: ""
     },
 
-    googleCloudVisionAPIKey: "AIzaSyAuOX_ncc5DBno4gSSMr3v0yXFaGc2f5kY"
+    googleCloudVisionAPIKey: "AIzaSyAuOX_ncc5DBno4gSSMr3v0yXFaGc2f5kY",
+
+    googleTranslate: {
+      projectId: 'YOUR_PROJECT_ID',
+      target: 'en',
+    }
   };

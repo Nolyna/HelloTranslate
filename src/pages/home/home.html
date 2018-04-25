@@ -1,17 +1,18 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Ionic Blank
+            HelloTranslate
         </ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-card *ngFor="let item of items | async">
+<ion-content padding class="card-background-page">
+    <!--ion-card *ngFor="let item of items | async">
         <img [src]="'data:image/png;base64,' + item.imageData" />
         <ion-card-content>
             <ion-list no-lines>
                 <ion-list-header>Labels</ion-list-header>
+                Take a picture
                 <ion-item *ngFor="let label of item.results[0].labelAnnotations">{{label.description}}</ion-item>
             </ion-list>
         </ion-card-content>
@@ -19,9 +20,14 @@
     <!--select ng-model="home_ctrl.detection_type">
         <option value="{{detection_type}}" ng-repeat="(detection_type, detection_type_value) in home_ctrl.detection_types">{{detection_type_value}}</option>
       </select-->
-    <ion-fab bottom right>
-        <button ion-fab (click)="takePhoto()">
-        <ion-icon name="camera"></ion-icon>
-        </button>
-    </ion-fab>
+    <ion-card>
+        <img src="assets/imgs/fond.jpg" />
+        <div class="card-title"> Hello !!</div>
+        <div class="card-subtitle">CLick on the camera to Take a picture </div>
+        <ion-fab bottom right>
+            <button ion-fab (click)="takePhoto()">
+                <ion-icon name="camera"></ion-icon>
+            </button>
+        </ion-fab>
+    </ion-card>
 </ion-content>
