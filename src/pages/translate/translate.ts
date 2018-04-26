@@ -89,35 +89,33 @@ export class TranslatePage {
   captureAudio(){
     let options = { language: this.LanguageSelect };
     // Start the recognition process
-    if (this.speechPermission){
-      this.speechRecognition.startListening(options)
-      .subscribe(
-        matches => {
-          console.log(matches);
-          if( matches[0] == this.wordTranslate){
-            this.score = this.pronunce(60,100);
-          }else{
-            this.score = this.pronunce(10,60);
-          }
-          this.scoreText = "Your pronunciation score is"+ this.score +" / 100";
-          //this.showAlert(" Your pronunciation score is"+ this.score +" / 100");
-        },
-        (onerror) => console.log('error:', onerror)
-      )
-    } else{
-      this.showAlert(" Action Denied");
-    }
+    this.speechPermission;
+    this.speechRecognition.startListening(options)
+    .subscribe(
+      matches => {
+        console.log(matches);
+        if( matches[0] == this.wordTranslate){
+          this.score = this.pronunce(60,100);
+        }else{
+          this.score = this.pronunce(10,60);
+        }
+        this.scoreText = "Your pronunciation score is"+ this.score +" / 100";
+        //this.showAlert(" Your pronunciation score is"+ this.score +" / 100");
+      },
+      (onerror) => {
+        console.log('error:', onerror);
+        this.showAlert(onerror);
+      }
+    )
   }
 
   speechPermission(){
-    var given = true;
     this.speechRecognition.hasPermission()
       .then( (hasPermission:boolean) => {
         if (!hasPermission){
          this.speechRecognition.requestPermission();
         }
       })
-    return given;
   }
 
   showAlert(message) {
